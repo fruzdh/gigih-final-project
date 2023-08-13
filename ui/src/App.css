@@ -1,0 +1,27 @@
+.glass {
+  background-color: rgba(77, 77, 77, 0.9);
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .glass {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(77, 77, 77, 0.5);
+  }
+}
+
+.productTitle {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@supports (display: -webkit-box) and (-webkit-line-clamp: 2) and
+  (-webkit-box-orient: vertical) {
+  .productTitle {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: inherit;
+  }
+}
