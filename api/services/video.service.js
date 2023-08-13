@@ -1,7 +1,7 @@
-const NotFoundError = require("../helpers/errors/notFound");
+const NotFoundError = require("../helpers/errors/notFound.error");
 const {
   findAllVideo,
-  findVideoById,
+  findVideoByIdAndAddViewCount,
 } = require("../repositories/video.repository");
 
 const getAllVideoService = async () => {
@@ -18,7 +18,7 @@ const getAllVideoService = async () => {
 };
 
 const getVideoByIdService = async (id) => {
-  const video = await findVideoById(id);
+  const video = await findVideoByIdAndAddViewCount(id);
   if (!video) {
     throw new NotFoundError("video not found");
   }

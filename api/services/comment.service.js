@@ -1,4 +1,4 @@
-const NotFoundError = require("../helpers/errors/notFound");
+const NotFoundError = require("../helpers/errors/notFound.error");
 const {
   insertComment,
   findCommentByVideoId,

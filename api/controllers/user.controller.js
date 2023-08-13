@@ -1,6 +1,6 @@
 const { registerService, loginService } = require("../services/user.service");
-const { textValidation } = require("../helpers/validation/text");
-const { colorValidation } = require("../helpers/validation/color");
+const { textValidation } = require("../helpers/validation/text.validation");
+const { colorValidation } = require("../helpers/validation/color.validation");
 
 const registerController = async (req, res) => {
   try {

@@ -1,5 +1,5 @@
-const idValidation = require("../helpers/validation/id");
-const { textValidation } = require("../helpers/validation/text");
+const idValidation = require("../helpers/validation/id.validation");
+const { textValidation } = require("../helpers/validation/text.validation");
 const {
   postCommentService,
   getCommentByVideoIdService,

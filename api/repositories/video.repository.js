@@ -5,6 +5,10 @@ const findAllVideo = async () => {
 };
 
 const findVideoById = async (id) => {
+  return await Video.findById(id);
+};
+
+const findVideoByIdAndAddViewCount = async (id) => {
   return await Video.findByIdAndUpdate(
     id,
     {
@@ -16,4 +20,4 @@ const findVideoById = async (id) => {
   );
 };
 
-module.exports = { findAllVideo, findVideoById };
+module.exports = { findAllVideo, findVideoById, findVideoByIdAndAddViewCount };

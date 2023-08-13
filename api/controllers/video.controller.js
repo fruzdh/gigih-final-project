@@ -1,4 +1,4 @@
-const idValidation = require("../helpers/validation/id");
+const idValidation = require("../helpers/validation/id.validation");
 const {
   getAllVideoService,
   getVideoByIdService,

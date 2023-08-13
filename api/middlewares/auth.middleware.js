@@ -1,4 +1,4 @@
-const { verifyToken } = require("../helpers/auth/jwt");
+const { verifyToken } = require("../helpers/auth/jwt.auth");
 
 const authMiddleware = async (req, res, next) => {
   const authHeader = req.headers.authorization;

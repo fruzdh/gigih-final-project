@@ -1,4 +1,4 @@
-const BadRequestError = require("../errors/badRequest");
+const BadRequestError = require("../errors/badRequest.error");
 
 const textValidation = (text) => {
   for (const key in text) {

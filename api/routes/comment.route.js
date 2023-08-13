@@ -3,7 +3,7 @@ const {
   postCommentController,
   getCommentByVideoIdController,
 } = require("../controllers/comment.controller");
-const { authMiddleware } = require("../middlewares/auth");
+const { authMiddleware } = require("../middlewares/auth.middleware");
 
 const commentRouter = express.Router();
 commentRouter.post(

@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const BadRequestError = require("../errors/badRequest");
+const BadRequestError = require("../errors/badRequest.error");
 
 const idValidation = (name, id) => {
   if (!mongoose.isObjectIdOrHexString(id)) {

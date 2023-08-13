@@ -1,8 +1,8 @@
-const { hash, compare } = require("../helpers/auth/hash");
-const { generateAccessToken } = require("../helpers/auth/jwt");
-const ConflictError = require("../helpers/errors/conflict");
-const NotFoundError = require("../helpers/errors/notFound");
-const UnauthorizedError = require("../helpers/errors/unauthorized");
+const { hash, compare } = require("../helpers/auth/hash.auth");
+const { generateAccessToken } = require("../helpers/auth/jwt.auth");
+const ConflictError = require("../helpers/errors/conflict.error");
+const NotFoundError = require("../helpers/errors/notFound.error");
+const UnauthorizedError = require("../helpers/errors/unauthorized.error");
 const {
   insertUser,
   findUserByUsername,

@@ -1,4 +1,4 @@
-const NotFoundError = require("../helpers/errors/notFound");
+const NotFoundError = require("../helpers/errors/notFound.error");
 const { findProductByVideoId } = require("../repositories/product.repository");
 const { findVideoById } = require("../repositories/video.repository");
 

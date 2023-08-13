@@ -1,4 +1,4 @@
-const BadRequestError = require("../errors/badRequest");
+const BadRequestError = require("../errors/badRequest.error");
 
 const colorValidation = (name, strColor) => {
   const regExp = /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i;
