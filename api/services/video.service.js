@@ -9,9 +9,10 @@ const getAllVideoService = async () => {
 
   return videos.map((video) => {
     return {
-      videoId: video._id,
-      urlImageThumbnail: `https://img.youtube.com/vi/${video.youtubeVideoId}/mqdefault.jpg`,
+      video_id: video._id,
+      url_image_thumbnail: `https://img.youtube.com/vi/${video.youtubeVideoId}/mqdefault.jpg`,
       timestamp: video.createdAt,
+      view_count: video.viewCount,
     };
   });
 };
@@ -23,8 +24,9 @@ const getVideoByIdService = async (id) => {
   }
 
   return {
-    urlEmbed: `https://www.youtube.com/embed/${video.youtubeVideoId}`,
+    url_embed: `https://www.youtube.com/embed/${video.youtubeVideoId}`,
     timestamp: video.createdAt,
+    view_count: video.viewCount,
   };
 };
 

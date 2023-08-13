@@ -22,7 +22,7 @@ const postCommentService = async (videoId, userId, comment) => {
 
   return {
     username: user.username,
-    profileColor: user.profileColor,
+    profile_color: user.profileColor,
     comment: newComment.comment,
     timestamp: newComment.createdAt,
   };
@@ -39,7 +39,7 @@ const getCommentByVideoIdService = async (videoId) => {
   return comments.comments.map((comment) => {
     return {
       username: comment.user.username,
-      profileColor: comment.user.profileColor,
+      profile_color: comment.user.profileColor,
       comment: comment.comment,
       timestamp: comment.createdAt,
     };

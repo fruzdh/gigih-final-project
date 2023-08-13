@@ -19,8 +19,8 @@ const registerService = async (username, password, profileColor) => {
 
   return {
     username: newUser.username,
-    profileColor: newUser.profileColor,
-    token: generateAccessToken(newUser),
+    profile_color: newUser.profileColor,
+    access_token: generateAccessToken(newUser),
   };
 };
 
@@ -37,8 +37,8 @@ const loginService = async (username, password) => {
 
   return {
     username: user.username,
-    profileColor: user.profileColor,
-    token: generateAccessToken(user),
+    profile_color: user.profileColor,
+    access_token: generateAccessToken(user),
   };
 };
 

@@ -12,11 +12,11 @@ const getProductByVideoIdService = async (videoId) => {
 
   return products.products.map((product) => {
     return {
-      productId: product._id,
-      linkProduct: product.url,
+      product_id: product._id,
+      link_product: product.url,
       title: product.title,
       price: product.price,
-      imageUrl: product.imageUrl,
+      image_url: product.imageUrl,
     };
   });
 };

@@ -17,6 +17,10 @@ const videoSchema = new mongoose.Schema({
     type: Number,
     default: Math.floor(Date.now() / 1000),
   },
+  viewCount: {
+    type: Number,
+    default: 0,
+  },
 });
 
 module.exports = mongoose.model("Video", videoSchema);
