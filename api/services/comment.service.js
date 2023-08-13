@@ -24,7 +24,11 @@ const postCommentService = async (videoId, userId, comment) => {
     username: user.username,
     profile_color: user.profileColor,
     comment: newComment.comment,
-    timestamp: newComment.createdAt,
+    timestamp: new Date(newComment.createdAt).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }),
   };
 };
 
@@ -41,7 +45,11 @@ const getCommentByVideoIdService = async (videoId) => {
       username: comment.user.username,
       profile_color: comment.user.profileColor,
       comment: comment.comment,
-      timestamp: comment.createdAt,
+      timestamp: new Date(comment.createdAt).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }),
     };
   });
 };

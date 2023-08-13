@@ -9,15 +9,11 @@ const registerController = async (req, res) => {
     colorValidation("profileColor", profileColor);
 
     const data = await registerService(username, password, profileColor);
-    res.status(201).json({
-      status: "success",
-      data: data,
-    });
+    res.status(201).json(data);
   } catch (e) {
-    res.status(e.errorCode || 500).json({
-      status: "fail",
-      message: e.errorCode ? e.message : "something wrong from our side",
-    });
+    res
+      .status(e.errorCode || 500)
+      .json(e.errorCode ? e.message : "something wrong from our side");
   }
 };
 
@@ -27,15 +23,11 @@ const loginController = async (req, res) => {
     textValidation({ username: username, password: password });
 
     const data = await loginService(username, password);
-    res.status(200).json({
-      status: "success",
-      data: data,
-    });
+    res.status(200).json(data);
   } catch (e) {
-    res.status(e.errorCode || 500).json({
-      status: "fail",
-      message: e.errorCode ? e.message : "something wrong from our side",
-    });
+    res
+      .status(e.errorCode || 500)
+      .json(e.errorCode ? e.message : "something wrong from our side");
   }
 };
 

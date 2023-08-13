@@ -17,15 +17,11 @@ const postCommentController = async (req, res) => {
     textValidation({ comment: comment });
 
     const newComment = await postCommentService(videoId, id, comment);
-    res.status(200).json({
-      status: "success",
-      data: newComment,
-    });
+    res.status(200).json(newComment);
   } catch (e) {
-    res.status(e.errorCode || 500).json({
-      status: "fail",
-      message: e.errorCode ? e.message : "something wrong from our side",
-    });
+    res
+      .status(e.errorCode || 500)
+      .json(e.errorCode ? e.message : "something wrong from our side");
   }
 };
 
@@ -34,15 +30,11 @@ const getCommentByVideoIdController = async (req, res) => {
     const { videoId } = req.params;
     idValidation("video id", videoId);
     const comments = await getCommentByVideoIdService(videoId);
-    res.status(200).json({
-      status: "success",
-      data: comments,
-    });
+    res.status(200).json(comments);
   } catch (e) {
-    res.status(e.errorCode || 500).json({
-      status: "fail",
-      message: e.errorCode ? e.message : "something wrong from our side",
-    });
+    res
+      .status(e.errorCode || 500)
+      .json(e.errorCode ? e.message : "something wrong from our side");
   }
 };
 

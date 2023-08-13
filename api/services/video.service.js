@@ -11,7 +11,11 @@ const getAllVideoService = async () => {
     return {
       video_id: video._id,
       url_image_thumbnail: `https://img.youtube.com/vi/${video.youtubeVideoId}/mqdefault.jpg`,
-      timestamp: video.createdAt,
+      timestamp: new Date(video.createdAt).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }),
       view_count: video.viewCount,
     };
   });
@@ -25,7 +29,11 @@ const getVideoByIdService = async (id) => {
 
   return {
     url_embed: `https://www.youtube.com/embed/${video.youtubeVideoId}`,
-    timestamp: video.createdAt,
+    timestamp: new Date(video.createdAt).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }),
     view_count: video.viewCount,
   };
 };

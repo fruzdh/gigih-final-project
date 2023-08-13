@@ -7,15 +7,11 @@ const {
 const getAllVideoController = async (req, res) => {
   try {
     const videos = await getAllVideoService();
-    res.status(200).json({
-      status: "success",
-      data: videos,
-    });
+    res.status(200).json(videos);
   } catch (e) {
-    res.status(e.errorCode || 500).json({
-      status: "fail",
-      message: e.errorCode ? e.message : "something wrong from our side",
-    });
+    res
+      .status(e.errorCode || 500)
+      .json(e.errorCode ? e.message : "something wrong from our side");
   }
 };
 
@@ -25,15 +21,11 @@ const getVideoByIdController = async (req, res) => {
     idValidation("video id", videoId);
 
     const video = await getVideoByIdService(videoId);
-    res.status(200).json({
-      status: "success",
-      data: video,
-    });
+    res.status(200).json(video);
   } catch (e) {
-    res.status(e.errorCode || 500).json({
-      status: "fail",
-      message: e.errorCode ? e.message : "something wrong from our side",
-    });
+    res
+      .status(e.errorCode || 500)
+      .json(e.errorCode ? e.message : "something wrong from our side");
   }
 };
 

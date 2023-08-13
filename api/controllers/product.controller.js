@@ -7,15 +7,11 @@ const getProductByVideoIdController = async (req, res) => {
     idValidation("video id", videoId);
 
     const products = await getProductByVideoIdService(videoId);
-    res.status(200).json({
-      status: "success",
-      data: products,
-    });
+    res.status(200).json(products);
   } catch (e) {
-    res.status(e.errorCode || 500).json({
-      status: "fail",
-      message: e.errorCode ? e.message : "something wrong from our side",
-    });
+    res
+      .status(e.errorCode || 500)
+      .json(e.errorCode ? e.message : "something wrong from our side");
   }
 };
 

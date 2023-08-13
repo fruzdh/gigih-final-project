@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 mongoose
   .connect(process.env.DATABASE_URL)
@@ -18,6 +19,11 @@ require("./models/product.model");
 const router = require("./routes/route");
 const app = express();
 
+app.use(
+  cors({
+    origin: process.env.UI_URL,
+  })
+);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", router);

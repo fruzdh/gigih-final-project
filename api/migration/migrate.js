@@ -32,7 +32,12 @@ const insertVideo = async (videos, products) => {
     return video;
   });
 
-  return await Video.insertMany(newVideos);
+  const date = new Date("2023-07-01");
+
+  for (let i = 0; i < newVideos.length; i++) {
+    await Video.insertMany([{ ...newVideos[i], createdAt: date }]);
+    date.setDate(date.getDate() + 1);
+  }
 };
 
 module.exports = migrate;
