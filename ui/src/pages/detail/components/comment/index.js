@@ -1,13 +1,15 @@
-import { Box, Button, Skeleton, Text } from "@chakra-ui/react";
+import { Skeleton } from "@chakra-ui/react";
 import CommentCard from "../commentCard";
 import { useParams } from "react-router-dom";
 import useAsync from "../../../../hooks/useAsync";
-import { useEffect } from "react";
 import axiosApiInstance from "../../../../utils/axios";
 import Error from "../../../../components/error";
+import CommentForm from "../commentForm";
+import { useEffect } from "react";
 
 const Comment = () => {
   const { id } = useParams();
+
   const { isLoading, isSuccess, isError, setData, data, error, run } = useAsync(
     {
       data: [],
@@ -16,48 +18,12 @@ const Comment = () => {
 
   useEffect(() => {
     run(axiosApiInstance.get(`video/${id}/comment`).then((res) => res.data));
-  }, [id, run]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
-      <Box
-        className="glass"
-        p="10px"
-        borderRadius="10px"
-        boxShadow={`0 4px 4px -2px #51C9CD`}
-        mb="10px"
-      >
-        <Text textColor="white" fontWeight="bold" fontSize="xl" mb="10px">
-          Comment
-        </Text>
-        <form
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "10px",
-            alignItems: "flex-end",
-          }}
-          onSubmit={() => {}}
-        >
-          <textarea
-            placeholder="comment"
-            className="textarea"
-            style={{
-              borderRadius: "10px",
-              color: "white",
-              resize: "vertical",
-              backgroundColor: "unset",
-              width: "100%",
-              minHeight: "50px",
-              border: "1px solid white",
-              padding: "10px",
-            }}
-          />
-          <Button size="sm" w="100px" borderRadius="30px">
-            SUBMIT
-          </Button>
-        </form>
-      </Box>
+      <CommentForm data={data} setData={setData} />
 
       {isLoading &&
         Array.from({ length: 5 }).map((_, i) => (

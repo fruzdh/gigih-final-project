@@ -5,15 +5,24 @@ import { useEffect } from "react";
 import axiosApiInstance from "../../utils/axios";
 import Error from "../../components/error";
 import NoData from "../../components/noData";
+import useQuery from "../../hooks/useQuery";
 
 const Home = () => {
+  const query = useQuery();
   const { isLoading, isSuccess, isError, data, error, run } = useAsync({
     data: [],
   });
 
   useEffect(() => {
-    run(axiosApiInstance.get("video").then((res) => res.data));
-  }, [run]);
+    const title = query.get("product_title");
+    let payload = "video";
+    if (title) {
+      payload += `?product_title=${title}`;
+    }
+
+    run(axiosApiInstance.get(payload).then((res) => res.data));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query]);
 
   return (
     <>

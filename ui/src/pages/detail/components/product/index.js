@@ -15,7 +15,8 @@ const Product = () => {
 
   useEffect(() => {
     run(axiosApiInstance.get(`video/${id}/product`).then((res) => res.data));
-  }, [id, run]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>

@@ -40,6 +40,8 @@ const useAsync = (state) => {
     [safeSetState]
   );
 
+  const reset = useCallback(() => safeSetState(ref.current), [safeSetState]);
+
   const setData = useCallback(
     (data) => safeSetState({ data: data }),
     [safeSetState]
@@ -49,10 +51,11 @@ const useAsync = (state) => {
     isLoading: status === "loading",
     isSuccess: status === "success",
     isError: status === "error",
-    setData,
     data,
     error,
     run,
+    reset,
+    setData,
   };
 };
 

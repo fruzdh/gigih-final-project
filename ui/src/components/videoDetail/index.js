@@ -1,7 +1,7 @@
 import { Flex, Text } from "@chakra-ui/react";
 import { FaCalendarDays, FaEye } from "react-icons/fa6";
 
-const VideoDetail = ({ color, timestamp, viewCount, ...rest }) => {
+const VideoDetail = ({ timestamp, viewCount, ...rest }) => {
   return (
     <Flex
       className="glass"
@@ -11,7 +11,7 @@ const VideoDetail = ({ color, timestamp, viewCount, ...rest }) => {
       p="10px"
       w="100%"
       justify="flex-end"
-      boxShadow={`0 4px 4px -2px ${color}`}
+      boxShadow={"0 4px 4px -2px var(--chakra-colors-appBlue-light)"}
       {...rest}
     >
       <FaCalendarDays />

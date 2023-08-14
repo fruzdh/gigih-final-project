@@ -24,7 +24,6 @@ const VideoCard = ({ id, urlImageThumbnail, timestamp, viewCount }) => {
         borderRadius="10px"
       />
       <VideoDetail
-        color="#51C9CD"
         timestamp={timestamp}
         viewCount={viewCount}
         position="absolute"

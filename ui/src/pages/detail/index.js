@@ -16,7 +16,8 @@ const Detail = () => {
 
   useEffect(() => {
     run(axiosApiInstance.get(`video/${id}`).then((res) => res.data));
-  }, [id, run]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Grid templateColumns="auto 300px" gap="10px" mt="20px">
@@ -37,7 +38,6 @@ const Detail = () => {
             </AspectRatio>
 
             <VideoDetail
-              color="#51C9CD"
               timestamp={data.timestamp}
               viewCount={data.view_count}
               borderRadius="10px"

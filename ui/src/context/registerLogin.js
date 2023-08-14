@@ -3,7 +3,7 @@ import useLocalStorage from "../hooks/useLocalStorage";
 
 const RegisterLoginContext = createContext();
 
-const RegisterLoginProvider = () => {
+const RegisterLoginProvider = (props) => {
   const [isOpen, setOpen] = useLocalStorage("modal-state", false);
   const [isRegister, setRegister] = useLocalStorage(
     "modal-content-state",
@@ -19,6 +19,7 @@ const RegisterLoginProvider = () => {
   return (
     <RegisterLoginContext.Provider
       value={{ isOpen, onOpen, onClose, isRegister, onRegister, onLogin }}
+      {...props}
     />
   );
 };

@@ -8,7 +8,7 @@ const AuthContext = createContext({
   logout: () => {},
 });
 
-const AuthProvider = () => {
+const AuthProvider = (props) => {
   const [user, setUser] = useLocalStorage("user-data");
 
   const registerLogin = (user_data) => {
@@ -24,7 +24,9 @@ const AuthProvider = () => {
     Cookies.remove("token");
   };
 
-  return <AuthContext.Provider value={{ user, registerLogin, logout }} />;
+  return (
+    <AuthContext.Provider value={{ user, registerLogin, logout }} {...props} />
+  );
 };
 
 export { AuthContext, AuthProvider };
