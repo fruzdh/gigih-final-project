@@ -8,6 +8,7 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
+  Spacer,
   Text,
 } from "@chakra-ui/react";
 import { FaCircleUser, FaHouse, FaSistrix } from "react-icons/fa6";
@@ -51,7 +52,6 @@ const Header = () => {
       position="sticky"
       top="10px"
       gap="10px"
-      justify="space-between"
       boxShadow={`0 4px 4px -2px ${
         user?.profile_color ? user?.profile_color : "#51C9CD"
       }`}
@@ -63,6 +63,7 @@ const Header = () => {
         borderRadius="50%"
         onClick={() => history.push("/")}
       />
+      <Spacer />
       <form style={{ display: "flex", gap: "10px" }} onSubmit={handleSearch}>
         <Input
           value={productTitle}
@@ -83,6 +84,7 @@ const Header = () => {
           borderRadius="50%"
         />
       </form>
+      <Spacer />
       {(user?.username || isMobile) && (
         <Menu>
           <MenuButton>

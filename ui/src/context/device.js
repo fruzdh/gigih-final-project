@@ -4,7 +4,7 @@ import { createContext } from "react";
 const DeviceContext = createContext();
 
 const DeviceProvider = (props) => {
-  const [isMaxOneVideo] = useMediaQuery("(max-width: 669px)");
+  const [isMaxOneVideo] = useMediaQuery("(max-width: 700px)");
   const [isTablet] = useMediaQuery("(max-width: 768px)");
   const [isMobile] = useMediaQuery("(max-width: 480px)");
 
