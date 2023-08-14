@@ -12,6 +12,8 @@ const VideoCard = ({ id, urlImageThumbnail, timestamp, viewCount }) => {
       borderRadius="10px"
       h="180px"
       w="320px"
+      maxW="calc(100vw - 20px)"
+      m="auto"
       cursor="pointer"
       onClick={() => history.push(`/video/${id}`)}
     >

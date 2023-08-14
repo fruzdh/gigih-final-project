@@ -6,12 +6,15 @@ import axiosApiInstance from "../../utils/axios";
 import Error from "../../components/error";
 import NoData from "../../components/noData";
 import useQuery from "../../hooks/useQuery";
+import useDevice from "../../hooks/useDevice";
 
 const Home = () => {
   const query = useQuery();
   const { isLoading, isSuccess, isError, data, error, run } = useAsync({
     data: [],
   });
+
+  const { isMaxOneVideo } = useDevice();
 
   useEffect(() => {
     const title = query.get("product_title");
@@ -28,7 +31,7 @@ const Home = () => {
     <>
       <Box
         display="grid"
-        justifyContent="space-between"
+        justifyContent={isMaxOneVideo ? "center" : "space-between"}
         mt="20px"
         flexWrap="wrap"
         gridColumnGap="10px"

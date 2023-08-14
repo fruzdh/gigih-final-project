@@ -8,6 +8,7 @@ const ProductCard = ({ linkProduct, title, price, imageUrl }) => {
       className="glass"
       borderRadius="10px"
       w="300px"
+      minW="300px"
       boxShadow="0 4px 4px -2px var(--chakra-colors-appBlue-light)"
       cursor="pointer"
       mb="10px"

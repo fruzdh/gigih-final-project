@@ -7,6 +7,7 @@ import Comment from "./components/comment";
 import useAsync from "../../hooks/useAsync";
 import axiosApiInstance from "../../utils/axios";
 import Error from "../../components/error";
+import useDevice from "../../hooks/useDevice";
 
 const Detail = () => {
   const { id } = useParams();
@@ -14,13 +15,19 @@ const Detail = () => {
     data: [],
   });
 
+  const { isTablet } = useDevice();
+
   useEffect(() => {
     run(axiosApiInstance.get(`video/${id}`).then((res) => res.data));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <Grid templateColumns="auto 300px" gap="10px" mt="20px">
+    <Grid
+      templateColumns={isTablet ? "100%" : "auto 300px"}
+      gap="10px"
+      mt="20px"
+    >
       <GridItem rowSpan={1} colSpan={1}>
         {isLoading && (
           <>
@@ -47,11 +54,16 @@ const Detail = () => {
         )}
 
         {isError && <Error error={error} h="500px" />}
+
+        {isTablet && <Product />}
+
         <Comment />
       </GridItem>
-      <GridItem rowSpan={1} colSpan={1}>
-        <Product />
-      </GridItem>
+      {!isTablet && (
+        <GridItem rowSpan={1} colSpan={1}>
+          <Product />
+        </GridItem>
+      )}
     </Grid>
   );
 };

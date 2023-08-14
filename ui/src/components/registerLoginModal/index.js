@@ -68,6 +68,7 @@ const RegisterLoginModal = () => {
       setShow(false);
       setUsername("");
       setPassword("");
+      setProfileColor("#51C9CD");
       reset();
     }
   }, [isOpen, reset]);

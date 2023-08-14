@@ -8,29 +8,32 @@ import theme from "./style";
 import { AuthProvider } from "./context/auth";
 import { RegisterLoginProvider } from "./context/registerLogin";
 import RegisterLoginModal from "./components/registerLoginModal";
+import { DeviceProvider } from "./context/device";
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
       <AuthProvider>
         <RegisterLoginProvider>
-          <Box backgroundColor="#2D2D2D" minH="100vh" p="10px">
-            <Box maxW="1500px" m="auto">
-              <Router>
-                <Header />
-                <Switch>
-                  <Route path="/video/:id">
-                    <Detail />
-                  </Route>
-                  <Route path="/">
-                    <Home />
-                  </Route>
-                </Switch>
-              </Router>
+          <DeviceProvider>
+            <Box backgroundColor="#2D2D2D" minH="100vh" p="10px">
+              <Box maxW="1500px" m="auto">
+                <Router>
+                  <Header />
+                  <Switch>
+                    <Route path="/video/:id">
+                      <Detail />
+                    </Route>
+                    <Route path="/">
+                      <Home />
+                    </Route>
+                  </Switch>
+                </Router>
+              </Box>
             </Box>
-          </Box>
 
-          <RegisterLoginModal />
+            <RegisterLoginModal />
+          </DeviceProvider>
         </RegisterLoginProvider>
       </AuthProvider>
     </ChakraProvider>
