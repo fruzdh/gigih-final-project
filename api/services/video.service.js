@@ -1,7 +1,9 @@
 const NotFoundError = require("../helpers/errors/notFound.error");
+const { findProductByTitle } = require("../repositories/product.repository");
 const {
   findAllVideo,
   findVideoByIdAndAddViewCount,
+  findVideoByProductIds,
 } = require("../repositories/video.repository");
 
 const getAllVideoService = async () => {
@@ -38,4 +40,30 @@ const getVideoByIdService = async (id) => {
   };
 };
 
-module.exports = { getAllVideoService, getVideoByIdService };
+const getVideoByProductTitleService = async (title) => {
+  const productIds = await findProductByTitle(title);
+  if (productIds.length === 0) {
+    return [];
+  }
+
+  const videos = await findVideoByProductIds(productIds);
+
+  return videos.map((video) => {
+    return {
+      video_id: video._id,
+      url_image_thumbnail: `https://img.youtube.com/vi/${video.youtubeVideoId}/mqdefault.jpg`,
+      timestamp: new Date(video.createdAt).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }),
+      view_count: video.viewCount,
+    };
+  });
+};
+
+module.exports = {
+  getAllVideoService,
+  getVideoByIdService,
+  getVideoByProductTitleService,
+};

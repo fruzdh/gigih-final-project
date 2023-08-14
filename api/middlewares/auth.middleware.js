@@ -9,16 +9,10 @@ const authMiddleware = async (req, res, next) => {
       req.token = tokenData;
       next();
     } catch (e) {
-      res.status(403).json({
-        status: "fail",
-        message: "unauthenticated",
-      });
+      res.status(403).json("unauthenticated");
     }
   } else {
-    res.status(403).json({
-      status: "fail",
-      message: "unauthenticated",
-    });
+    res.status(403).json("unauthenticated");
   }
 };
 

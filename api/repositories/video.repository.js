@@ -20,4 +20,13 @@ const findVideoByIdAndAddViewCount = async (id) => {
   );
 };
 
-module.exports = { findAllVideo, findVideoById, findVideoByIdAndAddViewCount };
+const findVideoByProductIds = async (productIds) => {
+  return await Video.find({ products: { $in: productIds } });
+};
+
+module.exports = {
+  findAllVideo,
+  findVideoById,
+  findVideoByIdAndAddViewCount,
+  findVideoByProductIds,
+};

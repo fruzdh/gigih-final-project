@@ -1,12 +1,22 @@
 const idValidation = require("../helpers/validation/id.validation");
+const { textValidation } = require("../helpers/validation/text.validation");
 const {
   getAllVideoService,
   getVideoByIdService,
+  getVideoByProductTitleService,
 } = require("../services/video.service");
 
 const getAllVideoController = async (req, res) => {
   try {
-    const videos = await getAllVideoService();
+    const title = req.query.product_title;
+
+    let videos = [];
+    if (title) {
+      videos = await getVideoByProductTitleService(title);
+    } else {
+      videos = await getAllVideoService();
+    }
+
     res.status(200).json(videos);
   } catch (e) {
     res
