@@ -19,11 +19,7 @@ require("./models/product.model");
 const router = require("./routes/route");
 const app = express();
 
-app.use(
-  cors({
-    origin: process.env.UI_URL,
-  })
-);
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", router);
