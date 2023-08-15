@@ -10,6 +10,7 @@
 - [API Structure](#api-structure)
 - [API Endpoints](#api-endpoints)
 - [Data Migration](#data-migration)
+- [Deployment](#deployment)
 
 ## How to Run
 
@@ -31,6 +32,12 @@
 
    ```
    npm run dev
+   ```
+
+6. App running at:
+
+   ```
+   http://localhost:5000
    ```
 
 ## Database Schema
@@ -199,3 +206,7 @@ Detailed explanation: [API Endpoints](https://gist.github.com/fruzdh/ee174b458d4
    ```
    npm run migrate
    ```
+
+## Deployment
+
+[https://gigih-final-project-fruzdh.vercel.app](https://gigih-final-project-fruzdh.vercel.app)

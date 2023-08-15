@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# Warung Play
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src='./public//logo.png' />
 
-## Available Scripts
+Warung Play is <a href='https://www.tokopedia.com/play/channels'>Tokopedia Play</a> Clone. Warung Play is a website to sell <a href='https://www.tokopedia.com/'>Tokopedia</a> Products with <a href='https://www.youtube.com/'>YouTube </a> Video.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [Warung Play](#warung-play)
+- [Table of Contents](#table-of-contents)
+- [How to Run](#how-to-run)
+- [Features](#features)
+- [Bonus Features](#bonus-features)
+- [Pages](#pages)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## How to Run
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Clone this repository.
+2. Navigate to the project directory using the terminal.
+3. Install the required dependencies by running:
 
-### `npm test`
+   ```
+   npm install
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. Create .env file:
 
-### `npm run build`
+   ```
+   cp .env.example .env
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5. Run the app:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```
+   npm start
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+6. App running at:
 
-### `npm run eject`
+   ```
+   http://localhost:3000
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Features
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Multi-page Navigation
+   - Home Page: Display a list of videos
+   - Video Detail Page: Display video detail, all products related to the video, and all comments from the video
+2. Search
+   - Users can search videos that contain specific product
+3. Authentication
+   - Users can register, login, and logout
+   - Username and profile color (used as profile picture) displayed on the top right (header)
+4. Comment
+   - Users can create a new comment for a specific video
+   - Users must log in to create a comment
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Bonus Features
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Search
+   - Users can search videos that contain specific product
+2. Authentication
+   - Users can register, login, and logout
+   - Username and profile color (used as profile picture) displayed on the top right (header)
 
-## Learn More
+## Pages
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `/`: Home Page
+- `/video/:videoId`: Video Detail Page
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Deployment
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[https://warung-play.vercel.app/](https://warung-play.vercel.app/)
